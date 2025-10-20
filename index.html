@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body{font-family: "Helvetica Neue", Arial, sans-serif;}
+.hero{padding:4rem 1rem;text-align:center;background:#f8f9fa;}
+.hero img{max-width:100%;height:auto;border-radius:1rem;box-shadow:0 0 10px rgba(0,0,0,0.1);} 
+.section-title{margin-top:4rem;margin-bottom:2rem;}
+.img-fluid{max-width:100%;height:auto;display:block;margin:0 auto;}
+img{display:block;margin:0 auto;}
+footer{padding:2rem 0;text-align:center;font-size:0.9rem;color:#666;}
+</style>
+</head>
+<body>
+<!-- Hero -->
+<section class="hero">
+  <h1 class="display-5 fw-bold">MedVLThinker</h1>
+  <p class="lead">Simple Baselines for Multimodal Medical Reasoning</p>
+  <p class="mt-3">
+    <a href="https://xk-huang.github.io/" class="text-ecoration-none me-3">Xiaoke Huang</a>
+    <a href="https://chtholly17.github.io/" class="text-decoration-none me-3">Juncheng Wu</a>
+    <a href="https://scholar.google.com/citations?user=brfcskMAAAAJ&hl=zh-CN" class="text-decoration-none me-3">Hui Liu</a>
+    <a href="https://scholar.google.com/citations?user=u1PEv-QAAAAJ&hl=zh-CN" class="text-decoration-none me-3">Xianfeng Tang</a>
+    <a href="https://yuyinzhou.github.io/" class="text-decoration-none">Yuyin Zhou</a>
+  </p>
+  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-4">
+    <a href="" class="btn btn-primary btn-lg">Paper (PDF)</a>
+    <a href="" class="btn btn-outline-primary btn-lg">arXiv</a>
+    <a href="" class="btn btn-outline-primary btn-lg">Code</a>
+    <a href="" class="btn btn-outline-primary btn-lg">Model Weights</a>
+    <a href="" class="btn btn-outline-primary btn-lg">Datasets</a>
+    <a href="" class="btn btn-outline-primary btn-lg">Training Logs</a>
+    <a href="#citation" class="btn btn-outline-primary btn-lg">Citation</a>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Abstract -->
+  <h2 class="section-title" id="abstract">Abstract</h2>
+  <p>
+    Large Multimodal Models (LMMs) are increasingly capable of answering medical questions that require joint reasoning over images 
+    and text, yet training general medical VQA systems is impeded by the lack of large, openly usable, high-quality corpora. We 
+    present <strong>MedVLSynther</strong>, a rubric-guided generator-verifier framework that synthesizes high-quality multiple-choice 
+    VQA items directly from open biomedical literature by conditioning on figures, captions, and in-text references. The generator 
+    produces self-contained stems and parallel, mutually exclusive options under a machine-checkable JSON schema; a multi-stage 
+    verifier enforces essential gates (self-containment, single correct answer, clinical validity, image-text consistency), 
+    awards fine-grained positive points, and penalizes common failure modes before acceptance. Applying this pipeline to PubMed 
+    Central yields <em>MedVLSynther-13K</em>: 13,087 audited questions over 14,803 images spanning 13 imaging modalities and 28 
+    anatomical regions. Training open-weight LMMs with reinforcement learning using verifiable rewards improves accuracy across 
+    six medical VQA benchmarks, achieving averages of 55.85 (3B) and 57.56 (7B), with up to 77.21 on VQA-RAD and 66.36 on PathVQA, 
+    outperforming strong medical LMMs. Ablations verify that both generation and verification are necessary and that more 
+    verified data consistently helps, and a targeted contamination analysis detects no leakage from evaluation suites. 
+    By operating entirely on open literature and open-weight models, MedVLSynther offers an auditable, reproducible, 
+    and privacy-preserving path to scalable medical VQA training data.
+  </p>
+
+  <!-- Key Contributions -->
+  <h2 class="section-title">Key Contributions</h2>
+<img src="assets/teaser.png" class="img-fluid" style="width:30%;" alt="Teaser figure">
+  <ul>
+    <li><strong>Fully Open Stack</strong>: end-to-end release of code, data curation scripts, checkpoints, and evaluation to enable full reproduction and auditing.</li>
+    <li><strong>Automatic and Open-sourced Pipeline</strong>: a rubric-guided generator–verifier workflow turns figures + captions into exam-quality MCQs with minimal manual effort, and is designed for easy extension.</li>
+    <li><strong>Contamination Analysis Assurance</strong>: we audit potential train/test overlap at both text and image levels; under our protocol, we find no leakage between our training data and evaluation suites.</li>
+    <li><strong>Effective in Practice</strong>: training open-weight LMMs on our verified synthetic data yields consistent gains across standard medical VQA benchmarks.</li>
+  </ul>
+
+  <!-- Method -->
+  <h2 class="section-title">Method Overview</h2>
+  <p>The figure illustrates our data curation pipeline. Click to enlarge.</p>
+  <a href="assets/method.png"><img src="assets/method.png" class="img-fluid" style="width:100%;"  alt="Pipeline figure"></a>
+
+
+  <!-- Results -->
+  <h2 class="section-title">Main Results</h2>
+  <p>Both MedVLSynther 3B and 7B achieve the best average across benchmarks, demonstrating strong 
+    gains at small and medium scales. We also did ablation experiments on data scale, choice of 
+    generator and verifier LMMs and training approach and data source.  
+    See the figure below.</p>
+  <img src="assets/table2.png" class="img-fluid" style="width:80%;"  alt="Benchmark results">
+  <img src="assets/table3.png" class="img-fluid" style="width:80%;"  alt="Benchmark results">
+  <img src="assets/table4.png" class="img-fluid" style="width:80%;"  alt="Benchmark results">
+  <img src="assets/table5.png" class="img-fluid" style="width:80%;"  alt="Benchmark results">
+  <img src="assets/table6.png" class="img-fluid" style="width:80%;"  alt="Benchmark results">
+
+  <h2 class="section-title">Qualitative Results</h2>
+  <!-- <p>We present qualitative results showcasing the capabilities of our models in various medical reasoning tasks. Click to enlarge.</p>
+  <a href="assets/sample.png"><img src="assets/sample.png" class="img-fluid" style="width:70%;"  alt="Pipeline figure"></a>
+  <p>We also provide qualitative results of 3B and 7B models: <a href="assets/medvlthinker-result-3b.pdf">3B</a>, <a href="assets/medvlthinker-result-7b.pdf">7B</a></p> -->
+
+
+  <!-- BibTeX -->
+  <h2 class="section-title" id="citation">Citation</h2>
+  <pre><code></code></pre>
+
+  <!-- Acknowledgements -->
+  <!-- <h2 class="section-title">Acknowledgements</h2> -->
+  <!-- <p>
+    This work was supported 
+  </p> -->
+</div>
+
+<footer>
+  Last updated: 20&nbsp;Oct&nbsp;2025 · Website template adapted from Nerfies</a>.
+</footer>
+</body>
+</html>
