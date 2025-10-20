@@ -1,0 +1,6 @@
+contamination/*/
+/tmp/
+/text_case/
+/image_case/
+**/legacy/
+/visualization/

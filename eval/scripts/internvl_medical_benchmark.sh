@@ -1,0 +1,11 @@
+python internvl_medical_bencmark.py \
+    --model /home/efs/nwang60/models/InternVL3_5-38B \
+    --dp_size 1 \
+    --tp_size 4 \
+    --temperature 0.0 \
+    --max_tokens 4096 \
+    --n 1 \
+    --batch_size 32 \
+    --output_dir outputs_eval/internvl_medical_benchmark_eval \
+    --dataset_name /home/efs/nwang60/datasets/MedVLThinker-Eval \
+    --trust_remote_code
