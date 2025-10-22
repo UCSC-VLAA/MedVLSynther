@@ -108,13 +108,11 @@ For dataset details and utilizing the synthesis pipeline, please refer to [synth
 
 ### Data Format
 
-All train datasets follow a unified format:
+All train datasets follow a unified format, just the same as MedVLThinker:
 
 ```py
 {
-    "images": [                 
-        {"bytes": <bytes>, "path": "optional"}
-    ],                               
+    "images": [PIL.Image],           # List of images                           
     "question": str,                 # Question text
     "options": Dict[str, str],       # Multiple choice options
     "answer_label": str,             # Correct answer label (A, B, C, D, E)

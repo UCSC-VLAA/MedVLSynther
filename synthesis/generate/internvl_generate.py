@@ -180,7 +180,9 @@ def _collect_pil_images(row: Dict[str, Any], max_images: int) -> List[Image.Imag
         return pil_images
     for it in images_field[:max_images]:
         img = None
-        if isinstance(it, dict):
+        if isinstance(it, Image.Image):
+            img = it.convert("RGB")
+        elif isinstance(it, dict):
             b = it.get("bytes"); p = it.get("path")
             if b is not None:
                 try:

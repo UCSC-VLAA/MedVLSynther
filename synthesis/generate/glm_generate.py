@@ -212,7 +212,9 @@ def build_messages(row: Dict[str, Any], args, tokenizer=None) -> Dict[str, Any]:
     if images_field and not args.ignore_image:
         for it in images_field:
             img = None
-            if isinstance(it, dict):
+            if isinstance(it, Image.Image):
+                img = it.convert("RGB")
+            elif isinstance(it, dict):
                 b = it.get("bytes"); p = it.get("path")
                 if b is not None:
                     try:

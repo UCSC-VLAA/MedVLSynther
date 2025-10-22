@@ -154,6 +154,8 @@ Download Biomedica: [https://huggingface.co/datasets/BIOMEDICA/biomedica_webdata
       --dataset_name dataset_name
     ```
 
+* **`convert_standard_format.py`**: Convert dataset format into standard format.
+
 ### generate
 
 Code for MCQ generation (image + caption + context) with our **generation rubric** prompts:

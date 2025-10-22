@@ -245,7 +245,9 @@ def _collect_pil_images(row: Dict[str, Any], args) -> List[Image.Image]:
 
     for it in images_field[:args.max_images_per_prompt]:
         img = None
-        if isinstance(it, dict):
+        if isinstance(it, Image.Image):
+            img = it.convert("RGB")
+        elif isinstance(it, dict):
             b = it.get("bytes"); p = it.get("path")
             if b is not None:
                 try:

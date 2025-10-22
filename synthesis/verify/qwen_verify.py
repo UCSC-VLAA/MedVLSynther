@@ -228,7 +228,9 @@ def build_messages_qwen(row: Dict[str, Any], prompt_text: str, args) -> Dict[str
     if images_field and not getattr(args, "ignore_image", False):
         for it in images_field[:args.max_images_per_prompt]:
             img = None
-            if isinstance(it, dict):
+            if isinstance(it, Image.Image):
+                img = it.convert("RGB")
+            elif isinstance(it, dict):
                 b = it.get("bytes"); p = it.get("path")
                 if b is not None:
                     try: img = Image.open(BytesIO(b)).convert("RGB")
