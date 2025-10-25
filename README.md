@@ -1,7 +1,7 @@
 # MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs
 
 [![arXiv](https://img.shields.io/badge/arXiv-paper-b31b1b.svg)]()
-[![Project Page](https://img.shields.io/badge/🌐-Project%20Page-orange)]()
+[![Project Page](https://img.shields.io/badge/🌐-Project%20Page-orange)](https://ucsc-vlaa.github.io/MedVLSynther/)
 [![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-blue)](https://huggingface.co/ns-wang)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
