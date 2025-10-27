@@ -210,7 +210,7 @@ Please download [MedVLThinker-Eval](https://huggingface.co/datasets/UCSC-VLAA/Me
 Please download the dataset you want to use above, e.g., MedVLSynther-13K:
 
 ```bash
-huggingface download ...
+hf download MedVLSynther/MedVLSynther-13K --repo-type=dataset
 ```
 
 Prepare it for verl format:
