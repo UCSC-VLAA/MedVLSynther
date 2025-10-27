@@ -77,7 +77,7 @@ from qwen_vl_utils import process_vision_info
 import torch
 
 # Load the model
-model_name="ns-wang/MedVLSynther-7B-RL_13K"
+model_name="MedVLSynther/MedVLSynther-7B-RL_13K"
 model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
     model_name,
     torch_dtype=torch.bfloat16,
