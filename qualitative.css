@@ -1,0 +1,59 @@
+/* === Qualitative auto-scrolling rows (no Bootstrap class collisions) === */
+.qual-section-note { margin-bottom: 0.75rem; }
+
+.qual-row { margin: 1rem 0 2.25rem; }
+.qual-row-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 .5rem;
+  color: #333;
+}
+
+.qual-scroller {
+  overflow: hidden;
+  position: relative;
+  padding: .25rem 0;
+  /* 边缘渐隐，视觉更干净 */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.qual-track {
+  display: flex;
+  gap: 24px;                 /* 卡片间距 */
+  width: max-content;        /* 跟随子项真实宽度 */
+  will-change: transform;
+}
+
+.qual-scroller[data-animated="true"] .qual-track {
+  animation: qual-scroll var(--_duration, 40s) linear infinite;
+  animation-play-state: running;
+}
+
+.qual-scroller[data-direction="reverse"] .qual-track {
+  animation-direction: reverse;
+}
+
+.qual-scroller:hover .qual-track { animation-play-state: paused; }
+
+@keyframes qual-scroll {
+  to { transform: translateX(calc(-50% - 12px)); } /* -50% 因为会克隆一遍；-12px 是 gap/2 */
+}
+
+/* 卡片样式：保持统一宽度，兼顾移动端 */
+.qual-card {
+  flex: 0 0 auto;
+  width: clamp(220px, 30vw, 560px);  /* 按需可调：越大每张越宽 */
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.07);
+  overflow: hidden;
+}
+
+.qual-card a { display: block; text-decoration: none; color: inherit; }
+.qual-card img { display: block; width: 100%; height: auto; }
+
+/* 动效无障碍：系统“减少动态”时禁用动画 */
+@media (prefers-reduced-motion: reduce) {
+  .qual-scroller[data-animated="true"] .qual-track { animation: none !important; }
+}

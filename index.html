@@ -13,52 +13,9 @@ body{font-family: "Helvetica Neue", Arial, sans-serif;}
 .img-fluid{max-width:100%;height:auto;display:block;margin:0 auto;}
 img{display:block;margin:0 auto;}
 footer{padding:2rem 0;text-align:center;font-size:0.9rem;color:#666;}
-/* === Auto-scrolling qualitative scroller === */
-.q-scroller {
-  overflow: hidden;
-  position: relative;
-  padding: 0.5rem 0;
-  /* 两侧渐隐遮罩，凸显中间内容 */
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-}
-
-.q-track {
-  display: flex;
-  gap: 24px;
-  width: max-content; 
-  will-change: transform;
-}
-
-.q-scroller[data-animated="true"] .q-track {
-  animation: q-scroll var(--_duration, 40s) linear infinite;
-}
-
-.q-scroller:hover .q-track {
-  animation-play-state: paused; 
-}
-
-.q-card {
-  flex: 0 0 auto;
-  width: clamp(280px, 38vw, 720px); 
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.08);
-  overflow: hidden;
-}
-
-.q-card a { text-decoration: none; color: inherit; display: block; }
-.q-card img { width: 100%; height: auto; display: block; }
-.q-cap { padding: 12px 16px; font-size: .95rem; color: #333; }
-
-@keyframes q-scroll {
-  to { transform: translateX(calc(-50% - 12px)); } 
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .q-scroller[data-animated="true"] .q-track { animation: none; }
-}
 </style>
+<link href="qualitative.css" rel="stylesheet">
+<script defer src="qualitative.js"></script>
 </head>
 <body>
 <!-- Hero -->
@@ -145,37 +102,89 @@ footer{padding:2rem 0;text-align:center;font-size:0.9rem;color:#666;}
     <img src="assets/7bmmmu.png" class="img-fluid" style="width:70%;"  alt="Pipeline figure">
   <p>More results can be seen in the paper's appendix.</p> -->
 
-<h2 class="section-title">Qualitative Results</h2>
-<p>We present qualitative results showcasing the capabilities of our models in various medical reasoning tasks. Click any item to view the full image.</p>
+  <h2 class="section-title" id="qualitative">Qualitative Results</h2>
+  <p class="qual-section-note">Two auto-scrolling rows: 7B cases (top) and 3B cases (bottom). Click any panel to open full-size.</p>
 
-<div class="q-scroller" data-animated="true" aria-label="Qualitative results auto-scrolling gallery">
-  <ul class="q-track list-unstyled m-0 p-0">
-    <li class="q-card">
-      <a href="assets/qualitative_results/3bmedxpert.png" target="_blank" rel="noopener">
-        <img src="assets/qualitative_results/3bmedxpert.png" alt="3B model qualitative samples on pathology-style questions">
-        <div class="q-cap">3B – Pathology-style qualitative examples</div>
-      </a>
-    </li>
+  <!-- Row 2: 3B cases -->
+  <div class="qual-row">
+    <div class="qual-row-title">3B Cases</div>
+    <div class="qual-scroller" data-animated="true" data-speed="110" data-direction="reverse" aria-label="3B qualitative auto-scrolling gallery">
+      <ul class="qual-track list-unstyled m-0 p-0">
+        <li class="qual-card">
+          <a href="assets/qualitative_results/3bmedxpert.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/3bmedxpert.png" alt="3B case 01">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/3bMMMU.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/3bMMMU.png" alt="3B case 02">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/3bpathvqa.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/3bpathvqa.png" alt="3B case 03">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/3bpmc.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/3bpmc.png" alt="3B case 04">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/3bslake.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/3bslake.png" alt="3B case 05">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/3bvqarad.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/3bvqarad.png" alt="3B case 06">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-    <li class="q-card">
-      <a href="assets/7bmmmu.png" target="_blank" rel="noopener">
-        <img src="assets/7bmmmu.png" alt="7B model qualitative samples on MMMU-med subset">
-        <div class="q-cap">7B – MMMU-med qualitative examples</div>
-      </a>
-    </li>
+  <!-- Row 1: 7B cases -->
+  <div class="qual-row">
+    <div class="qual-row-title">7B Cases</div>
+    <div class="qual-scroller" data-animated="true" data-speed="120" data-direction="normal" aria-label="7B qualitative auto-scrolling gallery">
+      <ul class="qual-track list-unstyled m-0 p-0">
+        <li class="qual-card">
+          <a href="assets/qualitative_results/7bmedxpert.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/7bmedxpert.png" alt="7B case 01">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/7bMMMU.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/7bMMMU.png" alt="7B case 02">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/7bpathvqa.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/7bpathvqa.png" alt="7B case 03">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/7bpmc.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/7bpmc.png" alt="7B case 04">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/7bslake.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/7bslake.png" alt="7B case 05">
+          </a>
+        </li>
+        <li class="qual-card">
+          <a href="assets/qualitative_results/7bvqarad.png" target="_blank" rel="noopener">
+            <img src="assets/qualitative_results/7bvqarad.png" alt="7B case 06">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- 如需更多，按需追加：
-    <li class="q-card">
-      <a href="assets/another.png" target="_blank" rel="noopener">
-        <img src="assets/another.png" alt="Another qualitative panel">
-        <div class="q-cap">Another panel</div>
-      </a>
-    </li>
-    -->
-  </ul>
-</div>
 
-<p class="mt-2">More results can be found in the appendix.</p>
+
 
   <!-- Contamination Analysis -->
   <h2 class="section-title">Contamination Analysis</h2>
