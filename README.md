@@ -176,7 +176,7 @@ from datasets import load_dataset
 eval_dataset = load_dataset("UCSC-VLAA/MedVLThinker-Eval")
 
 # Load training dataset
-TBD
+train_dataset = load_dataset("MedVLSynther/MedSynVQA-13K")
 ```
 
 For dataset details and utilizing the synthesis pipeline, please refer to [synthesis/README.md](synthesis/README.md) and [data_process/README.md](data_process/README.md).
