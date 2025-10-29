@@ -5,7 +5,7 @@
 [![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-blue)](https://huggingface.co/MedVLSynther)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-**MedVLSynther** is a rubric-guided generator-verifier framework that synthesizes high-quality multiple-choice VQA items directly from open biomedical literature by conditioning on figures, captions, and in-text references. Applying this pipeline to PubMed Central yields MedVLSynther-13K: 13,087 audited questions over 14,803 images spanning 13 imaging modalities and 28 anatomical regions. Training open-weight LMMs with reinforcement learning using verifiable rewards **improves accuracy across six medical VQA benchmarks**, achieving averages of **55.85** (3B) and **57.56** (7B), with up to **77.21** on VQA-RAD and 66.36 on PathVQA, outperforming strong medical LMMs.
+**MedVLSynther** is a rubric-guided generator-verifier framework that synthesizes high-quality multiple-choice VQA items directly from open biomedical literature by conditioning on figures, captions, and in-text references. Applying this pipeline to PubMed Central yields MedSynVQA: 13,087 audited questions over 14,803 images spanning 13 imaging modalities and 28 anatomical regions. Training open-weight LMMs with reinforcement learning using verifiable rewards **improves accuracy across six medical VQA benchmarks**, achieving averages of **55.85** (3B) and **57.56** (7B), with up to **77.21** on VQA-RAD and 66.36 on PathVQA, outperforming strong medical LMMs.
 
 ## 🔥 Highlights
 
@@ -155,17 +155,17 @@ We release **MedVLSynther-13K** and the subsets used in our paper. Each set targ
 
 | Dataset | Generator | Verifier | Modality | Description | Download |
 |---|---|---|---|---|---|
-| **MedVLSynther-13K** | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | Full training set for medical VQA (used for RLVR). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-13K) |
-| **MedVLSynther-10K** | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 10K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-10K) |
-| **MedVLSynther-5K**  | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 5K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K) |
-| **MedVLSynther-2K**  | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 2K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-2K) |
-| **MedVLSynther-1K**  | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 1K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-1K) |
-| **MedVLSynther-5K-qwen-glm** | Qwen2.5-VL 72B | GLM-4.5V 108B | Image–Text | 5K subset for **generator and verifier choice** ablation (GLM→Qwen generator, Qwen→GLM verifier). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-qwen-glm) |
-| **MedVLSynther-5K-internvl-glm** | InternVL-3.5 38B | GLM-4.5V 108B | Image–Text | 5K subset for **generator choice** ablation (InternVL→GLM verifier). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-internvl-glm) |
-| **MedVLSynther-5K-glm-glm** | GLM-4.5V 108B | GLM-4.5V 108B | Image–Text | 5K subset for **verifier choice** ablation (Qwen→GLM verifier). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-glm-glm) |
-| **MedVLSynther-5K-no-verify** | GLM-4.5V 108B | N/A | Image–Text | 5K subset for **verifier necessity** ablation (no verification step). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-no-verify) |
-| **MedVLSynther-5K-PMC-style** | GLM-4.5V 108B | N/A | Image–Text | 5K subset generated with **PMC-VQA–style** prompts. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-PMC-style) |
-| **MedVLSynther-5K-SFT** | GLM-4.5V 108B | N/A | Image–Text | 5K subset generated for SFT training. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-SFT) |
+| **MedSynVQA** | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | Full training set for medical VQA (used for RLVR). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-13K) |
+| **MedSynVQA-10K** | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 10K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-10K) |
+| **MedSynVQA-5K**  | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 5K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K) |
+| **MedSynVQA-2K**  | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 2K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-2K) |
+| **MedSynVQA-1K**  | GLM-4.5V 108B | Qwen2.5-VL 72B | Image–Text | 1K-sample training subset for RLVR. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-1K) |
+| **MedSynVQA-5K-qwen-glm** | Qwen2.5-VL 72B | GLM-4.5V 108B | Image–Text | 5K subset for **generator and verifier choice** ablation (GLM→Qwen generator, Qwen→GLM verifier). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-qwen-glm) |
+| **MedSynVQA-5K-internvl-glm** | InternVL-3.5 38B | GLM-4.5V 108B | Image–Text | 5K subset for **generator choice** ablation (InternVL→GLM verifier). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-internvl-glm) |
+| **MedSynVQA-5K-glm-glm** | GLM-4.5V 108B | GLM-4.5V 108B | Image–Text | 5K subset for **verifier choice** ablation (Qwen→GLM verifier). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-glm-glm) |
+| **MedSynVQA-5K-no-verify** | GLM-4.5V 108B | N/A | Image–Text | 5K subset for **verifier necessity** ablation (no verification step). | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-no-verify) |
+| **MedSynVQA-5K-PMC-style** | GLM-4.5V 108B | N/A | Image–Text | 5K subset generated with **PMC-VQA–style** prompts. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-PMC-style) |
+| **MedSynVQA-5K-SFT** | GLM-4.5V 108B | N/A | Image–Text | 5K subset generated for SFT training. | [🤗 HF](https://huggingface.co/datasets/MedVLSynther/MedVLSynther-5K-SFT) |
 
 ### Dataset Usage
 
@@ -210,23 +210,23 @@ Please download [MedVLThinker-Eval](https://huggingface.co/datasets/UCSC-VLAA/Me
 Please download the dataset you want to use above, e.g., MedVLSynther-13K:
 
 ```bash
-hf download MedVLSynther/MedVLSynther-13K --repo-type=dataset
+hf download MedVLSynther/MedSynVQA-13K --repo-type=dataset
 ```
 
 Prepare it for verl format:
 
 ```bash
 python data_process/prep_to_hf_bytes.py \
-    --parquet_glob "data/MedVLSynther-13K/*.parquet" \
-    --out_dir data/MedVLSynther-13K_hf \
+    --parquet_glob "data/MedSynVQA-13K/*.parquet" \
+    --out_dir data/MedSynVQA-13K_hf \
     --num_proc 32 --strict_image --keep_first_k_images 6
 
 python data_process/convert_verl_format.py \
-    --local_data_dir data/MedVLSynther-13K_hf \
-    --data_source MedVLSynther-13K \
+    --local_data_dir data/MedSynVQA-13K_hf \
+    --data_source MedSynVQA-13K \
     --ability medical_mcqa \
     --split train \
-    --output_dir data/MedVLSynther-13K_verl \
+    --output_dir data/MedSynVQA-13K_verl \
     --num_proc 32
 ```
 
@@ -263,29 +263,29 @@ Please refer to [eval/README.md](eval/README.md).
 | Model | Size | RL/SFT | Training Data | Download |
 |-------|------|----------------|---------------|----------|
 | **RL Models** |
-| MedVLSynther-3B-RL_1K | 3B | RL | MedVLSynther-1K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_1K) |
-| MedVLSynther-3B-RL_2K | 3B | RL | MedVLSynther-2K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_2K) |
-| MedVLSynther-3B-RL_5K | 3B | RL | MedVLSynther-5K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K) |
-| MedVLSynther-3B-RL_10K | 3B | RL | MedVLSynther-10K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_10K) |
-| MedVLSynther-3B-RL_13K | 3B | RL | MedVLSynther-13K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_13K) |
-| MedVLSynther-3B-RL_5K_qwen-glm | 3B | RL | MedVLSynther-5K-qwen-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_qwen-glm) |
-| MedVLSynther-3B-RL_5K_internvl-glm | 3B | RL | MedVLSynther-5K-internvl-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_internvl-glm) |
-| MedVLSynther-3B-RL_5K_glm-glm | 3B | RL | MedVLSynther-5K-glm-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_glm-glm) |
-| MedVLSynther-3B-RL_5K_no-verify | 3B | RL | MedVLSynther-5K-no-verify | [🤗 HF](https://huggingface.co/ns-wang/MedVLSynther-3B-RL_5K_no-verify) |
-| MedVLSynther-3B-RL_5K_PMC-style | 3B | RL | MedVLSynther-5K-PMC-style | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_PMC-style) |
-| MedVLSynther-7B-RL_1K | 7B | RL | MedVLSynther-1K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_1K) |
-| MedVLSynther-7B-RL_2K | 7B | RL | MedVLSynther-2K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_2K) |
-| MedVLSynther-7B-RL_5K | 7B | RL | MedVLSynther-5K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K) |
-| MedVLSynther-7B-RL_10K | 7B | RL | MedVLSynther-10K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_10K) |
-| MedVLSynther-7B-RL_13K | 7B | RL | MedVLSynther-13K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_13K) |
-| MedVLSynther-7B-RL_5K_qwen-glm | 7B | RL | MedVLSynther-5K-qwen-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_qwen-glm) |
-| MedVLSynther-7B-RL_5K_internvl-glm | 7B | RL | MedVLSynther-5K-internvl-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_internvl-glm) |
-| MedVLSynther-7B-RL_5K_glm-glm | 7B | RL | MedVLSynther-5K-glm-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_glm-glm) |
-| MedVLSynther-7B-RL_5K_no-verify | 7B | RL | MedVLSynther-5K-no-verify | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_no-verify) |
-| MedVLSynther-7B-RL_5K_PMC-style | 7B | RL | MedVLSynther-5K-PMC-style | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_PMC-style) |
+| MedVLSynther-3B-RL_1K | 3B | RL | MedSynVQA-1K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_1K) |
+| MedVLSynther-3B-RL_2K | 3B | RL | MedSynVQA-2K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_2K) |
+| MedVLSynther-3B-RL_5K | 3B | RL | MedSynVQA-5K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K) |
+| MedVLSynther-3B-RL_10K | 3B | RL | MedSynVQA-10K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_10K) |
+| MedVLSynther-3B-RL_13K | 3B | RL | MedSynVQA | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_13K) |
+| MedVLSynther-3B-RL_5K_qwen-glm | 3B | RL | MedSynVQA-5K-qwen-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_qwen-glm) |
+| MedVLSynther-3B-RL_5K_internvl-glm | 3B | RL | MedSynVQA-5K-internvl-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_internvl-glm) |
+| MedVLSynther-3B-RL_5K_glm-glm | 3B | RL | MedSynVQA-5K-glm-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_glm-glm) |
+| MedVLSynther-3B-RL_5K_no-verify | 3B | RL | MedSynVQA-5K-no-verify | [🤗 HF](https://huggingface.co/ns-wang/MedVLSynther-3B-RL_5K_no-verify) |
+| MedVLSynther-3B-RL_5K_PMC-style | 3B | RL | MedSynVQA-5K-PMC-style | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-3B-RL_5K_PMC-style) |
+| MedVLSynther-7B-RL_1K | 7B | RL | MedSynVQA-1K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_1K) |
+| MedVLSynther-7B-RL_2K | 7B | RL | MedSynVQA-2K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_2K) |
+| MedVLSynther-7B-RL_5K | 7B | RL | MedSynVQA-5K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K) |
+| MedVLSynther-7B-RL_10K | 7B | RL | MedSynVQA-10K | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_10K) |
+| MedVLSynther-7B-RL_13K | 7B | RL | MedSynVQA | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_13K) |
+| MedVLSynther-7B-RL_5K_qwen-glm | 7B | RL | MedSynVQA-5K-qwen-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_qwen-glm) |
+| MedVLSynther-7B-RL_5K_internvl-glm | 7B | RL | MedSynVQA-5K-internvl-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_internvl-glm) |
+| MedVLSynther-7B-RL_5K_glm-glm | 7B | RL | MedSynVQA-5K-glm-glm | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_glm-glm) |
+| MedVLSynther-7B-RL_5K_no-verify | 7B | RL | MedSynVQA-5K-no-verify | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_no-verify) |
+| MedVLSynther-7B-RL_5K_PMC-style | 7B | RL | MedSynVQA-5K-PMC-style | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLSynther-7B-RL_5K_PMC-style) |
 | **SFT Models** |
-| MedVLThinker-3B-SFT_5K | 3B | SFT | MedVLSynther-5K-SFT | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLThinker-3B-SFT_5K) |
-| MedVLThinker-7B-SFT_5K | 7B | SFT | MedVLSynther-5K-SFT | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLThinker-7B-SFT_5K) |
+| MedVLThinker-3B-SFT_5K | 3B | SFT | MedSynVQA-5K-SFT | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLThinker-3B-SFT_5K) |
+| MedVLThinker-7B-SFT_5K | 7B | SFT | MedSynVQA-5K-SFT | [🤗 HF](https://huggingface.co/MedVLSynther/MedVLThinker-7B-SFT_5K) |
 
 ### Benchmark Results
 
