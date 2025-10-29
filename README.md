@@ -207,7 +207,7 @@ Please download [MedVLThinker-Eval](https://huggingface.co/datasets/UCSC-VLAA/Me
 
 ### Prepare Training Data
 
-Please download the dataset you want to use above, e.g., MedVLSynther-13K:
+Please download the dataset you want to use above, e.g., MedSynVQA:
 
 ```bash
 hf download MedVLSynther/MedSynVQA-13K --repo-type=dataset
