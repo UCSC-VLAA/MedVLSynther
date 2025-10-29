@@ -321,7 +321,33 @@ MedVLSynther/
 └── README.md          # This file
 ```
 
+## 📄 License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [VERL](https://github.com/volcengine/verl) for reinforcement learning framework
+- [vLLM](https://github.com/vllm-project/vllm) for efficient inference
+- [GLM-V](https://github.com/zai-org/GLM-V), [Qwen-VL](https://github.com/QwenLM/Qwen-VL), and [Intern-VL](https://github.com/OpenGVLab/InternVL) for SOTA LMMs
+- [BioMedica](https://huggingface.co/BIOMEDICA) for curated biomedical literature
+- Medical VQA dataset providers
+
 ## 📚 Citation
 
+If you find this work useful, please cite:
 
-
+```bibtex
+@article{MedVLSynther,
+  title={MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs},
+  author={Huang, Xiaoke and Wang, Ningsen and Liu, Hui and Tang, Xianfeng and Zhou, Yuyin},
+  journal={arXiv preprint arXiv},
+  year={2025}
+}
+@article{MedVLThinker,
+  title={Medvlthinker: Simple baselines for multimodal medical reasoning},
+  author={Huang, Xiaoke and Wu, Juncheng and Liu, Hui and Tang, Xianfeng and Zhou, Yuyin},
+  journal={arXiv preprint arXiv:2508.02669},
+  year={2025}
+}
+````
