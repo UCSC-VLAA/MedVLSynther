@@ -151,7 +151,7 @@ print(output_text)
 
 ### Available Datasets
 
-We release **MedVLSynther-13K** and the subsets used in our paper. Each set targets medical vision–language QA and supports RLVR/SFT training.
+We release **MedSynVQA** and the subsets used in our paper. Each set targets medical vision–language QA and supports RLVR/SFT training.
 
 | Dataset | Generator | Verifier | Modality | Description | Download |
 |---|---|---|---|---|---|
