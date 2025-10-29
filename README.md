@@ -67,7 +67,7 @@ pip install trl transformers
 
 Because GLM‑4.5V requires recent vLLM and transformers, we recommend using the SFT (TRL) environment for the entire synthesis pipeline.
 
-## 🚀 Installation
+## 🎯 Quick Start
 
 ### Demo
 
