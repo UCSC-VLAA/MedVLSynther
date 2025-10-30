@@ -5,7 +5,7 @@
 [![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-blue)](https://huggingface.co/MedVLSynther)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 
-**MedVLSynther** is a rubric-guided generator-verifier framework that synthesizes high-quality multiple-choice VQA items directly from open biomedical literature by conditioning on figures, captions, and in-text references. Applying this pipeline to PubMed Central yields MedSynVQA: 13,087 audited questions over 14,803 images spanning 13 imaging modalities and 28 anatomical regions. Training open-weight LMMs with reinforcement learning using verifiable rewards **improves accuracy across six medical VQA benchmarks**, achieving averages of **55.85** (3B) and **57.56** (7B), with up to **77.21** on VQA-RAD and 66.36 on PathVQA, outperforming strong medical LMMs.
+**MedVLSynther** is a rubric-guided generator-verifier framework that synthesizes high-quality multiple-choice VQA items directly from open biomedical literature by conditioning on figures, captions, and in-text references. Applying this pipeline to PubMed Central yields MedSynVQA: 13,087 audited questions over 14,803 images spanning 13 imaging modalities and 28 anatomical regions. Training open-weight LMMs with reinforcement learning using verifiable rewards **improves accuracy across six medical VQA benchmarks**, achieving averages of **55.85** (3B) and **58.15** (7B), with up to **77.57** on VQA-RAD and 67.76 on PathVQA, outperforming strong medical LMMs.
 
 ## 🔥 Highlights
 
