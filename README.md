@@ -1,6 +1,6 @@
 # MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs
 
-[![arXiv](https://img.shields.io/badge/arXiv-paper-b31b1b.svg)]()
+[![arXiv](https://img.shields.io/badge/arXiv-paper-b31b1b.svg)](https://arxiv.org/abs/2510.25867)
 [![Project Page](https://img.shields.io/badge/🌐-Project%20Page-orange)](https://ucsc-vlaa.github.io/MedVLSynther/)
 [![Hugging Face](https://img.shields.io/badge/🤗-Hugging%20Face-blue)](https://huggingface.co/MedVLSynther)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -341,7 +341,7 @@ If you find this work useful, please cite:
 @article{MedVLSynther,
   title={MedVLSynther: Synthesizing High-Quality Visual Question Answering from Medical Documents with Generator-Verifier LMMs},
   author={Huang, Xiaoke and Wang, Ningsen and Liu, Hui and Tang, Xianfeng and Zhou, Yuyin},
-  journal={arXiv preprint arXiv},
+  journal={arXiv preprint arXiv:2510.25867},
   year={2025}
 }
 @article{MedVLThinker,
