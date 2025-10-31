@@ -11,9 +11,7 @@ Tools for make datasets for verl or trl.
 
 ```py
 {
-    "images": [                 
-        {"bytes": <bytes>, "path": "optional"}
-    ],                               
+    "images": [PIL.Image],           # List of images                           
     "question": str,                 # Question text
     "options": Dict[str, str],       # Multiple choice options
     "answer_label": str,             # Correct answer label (A, B, C, D, E)
