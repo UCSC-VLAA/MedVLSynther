@@ -330,7 +330,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 - [VERL](https://github.com/volcengine/verl) for reinforcement learning framework
 - [vLLM](https://github.com/vllm-project/vllm) for efficient inference
 - [GLM-V](https://github.com/zai-org/GLM-V), [Qwen-VL](https://github.com/QwenLM/Qwen-VL), and [Intern-VL](https://github.com/OpenGVLab/InternVL) for SOTA LMMs
-- [BioMedica](https://huggingface.co/BIOMEDICA) for curated biomedical literature
+- [BioMedica](https://minwoosun.github.io/biomedica-website/) for curated biomedical literature
 - Medical VQA dataset providers
 
 ## 📚 Citation
